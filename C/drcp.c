@@ -65,31 +65,31 @@ int main(int argc, char **argv)
      */
 
     rc = OCIEnvNlsCreate(&envhp, OCI_DEFAULT, 0, NULL, NULL, NULL, 0, NULL, 0, 0);
-    if (rc != OCI_SUCCESS)
-    {
-        oracode = 0;
-        *errbuf = '\0';
-        if (envhp)
-            OCIErrorGet(envhp, 1, NULL, &oracode, errbuf, sizeof(errbuf), OCI_HTYPE_ENV);
-        if (*errbuf)
-            printf("OCIEnvNlsCreate failed: %d : %s\n", oracode, errbuf);
-        else
-            printf("OCIEnvNlsCreate returned status: %d\n", rc);
-        exit(1);
-    }
+    // if (rc != OCI_SUCCESS)
+    // {
+    //     oracode = 0;
+    //     *errbuf = '\0';
+    //     if (envhp)
+    //         OCIErrorGet(envhp, 1, NULL, &oracode, errbuf, sizeof(errbuf), OCI_HTYPE_ENV);
+    //     if (*errbuf)
+    //         printf("OCIEnvNlsCreate failed: %d : %s\n", oracode, errbuf);
+    //     else
+    //         printf("OCIEnvNlsCreate returned status: %d\n", rc);
+    //     exit(1);
+    // }
 
-    rc = OCIHandleAlloc(envhp, (void **)&errhp, OCI_HTYPE_ERROR, 0, NULL);
-    if (rc != OCI_SUCCESS)
-    {
-        oracode = 0;
-        *errbuf = '\0';
-        OCIErrorGet(envhp, 1, NULL, &oracode, errbuf, sizeof(errbuf), OCI_HTYPE_ENV);
-        if (*errbuf)
-            printf("OCIHandleAlloc failed: %d : %s\n", oracode, errbuf);
-        else
-            printf("OCIHandleAlloc returned status: %d\n", rc);
-        exit(1);
-    }
+    // rc = OCIHandleAlloc(envhp, (void **)&errhp, OCI_HTYPE_ERROR, 0, NULL);
+    // if (rc != OCI_SUCCESS)
+    // {
+    //     oracode = 0;
+    //     *errbuf = '\0';
+    //     OCIErrorGet(envhp, 1, NULL, &oracode, errbuf, sizeof(errbuf), OCI_HTYPE_ENV);
+    //     if (*errbuf)
+    //         printf("OCIHandleAlloc failed: %d : %s\n", oracode, errbuf);
+    //     else
+    //         printf("OCIHandleAlloc returned status: %d\n", rc);
+    //     exit(1);
+    // }
 
     rc = OCIHandleAlloc(envhp, (void **)&authInfop, OCI_HTYPE_AUTHINFO, 0, NULL);
     checkerr(errhp, rc);
