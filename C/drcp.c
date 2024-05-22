@@ -99,6 +99,7 @@ int main(int argc, char **argv)
 
     printf("Enter the DB username: ");
     scanf("%s", userName);
+    printf(userName);
     printf("Enter the DB password: ");
     scanf("%s", userPassword);
 
