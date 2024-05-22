@@ -13,8 +13,8 @@ OINC=$(OH)/rdbms/public
 
 
 drcp: clean
-	$(CC) -Wall -Wextra -c -I$(OINC) drcp.c
-	$(CC) -o drcp drcp.o -Wl,--rpath -Wl,$(OLIB) -L$(OLIB) -lclntsh
+	$(CC) -Wall -Wextra -g -c -I$(OINC) drcp.c
+	$(CC) -g -o drcp drcp.o -Wl,--rpath -Wl,$(OLIB) -L$(OLIB) -lclntsh
 
 clean:
 	rm -f drcp.o drcp
